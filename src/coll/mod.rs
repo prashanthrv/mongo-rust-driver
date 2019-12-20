@@ -534,7 +534,7 @@ impl<'de> Deserialize<'de> for Namespace {
         let coll = parts.collect::<Vec<_>>().join(".");
 
         match (db, coll) {
-            (Some(db), coll) if !coll.is_empty() => Ok(Self {
+            (Some(db), ref coll) if !coll.is_empty() => Ok(Self {
                 db: db.to_string(),
                 coll,
             }),
