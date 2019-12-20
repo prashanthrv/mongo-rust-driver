@@ -536,7 +536,7 @@ impl<'de> Deserialize<'de> for Namespace {
         match (db, coll) {
             (Some(db), ref coll) if !coll.is_empty() => Ok(Self {
                 db: db.to_string(),
-                coll,
+                coll: coll.to_string(),
             }),
             _ => Err(D::Error::custom("Missing one or more fields in namespace")),
         }
